@@ -2,7 +2,7 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 import domain.Algoritmo;
-import domain.Papel;
+import domain.Jokenpo;
 import domain.TipoJogada;
 import java.util.Scanner;
 import java.util.Random;
@@ -17,10 +17,12 @@ public class Main {
         Random rand = new Random();
         int escolha, pc;
 
-        System.out.printf("Escolha um movimeto\n"
-                        + "1- Papel\n"
-                        + "2- Tesoura\n"
-                        + "3- Pedra\n");
+        System.out.printf("Escolha um movimeto\n" +
+                        "1- Papel\n" +
+                        "2- Tesoura\n" +
+                        "3- Pedra\n" +
+                        "4 - Lagarto\n" +
+                        "5 - Spocky\n");
 
         escolha = cin.nextInt();
 
@@ -32,11 +34,12 @@ public class Main {
         System.out.println("O Player escolhe: " + jogadaUsuario);
         System.out.println("O PC escolhe: " + jogadaPc);
 
-        
-
         Algoritmo algoritmo = Algoritmo.getAlgoritmo(jogadaUsuario);
 
-        algoritmo.executar(jogadaPc);
+        Jokenpo  jokenpo = new Jokenpo(algoritmo);
+        jokenpo.jogar(jogadaPc);
+
+        cin.close();
 
     }
 }

@@ -26,7 +26,7 @@ public class Main {
 
         escolha = cin.nextInt();
 
-        pc = rand.nextInt(3) + 1;
+        pc = rand.nextInt(5) + 1;
 
         TipoJogada jogadaUsuario = TipoJogada.getById(escolha);
         TipoJogada jogadaPc = TipoJogada.getById(pc);

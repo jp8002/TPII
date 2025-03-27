@@ -1,4 +1,6 @@
+import dao.ContatoDAO;
 import model.factory.ConnectionFactory;
+import model.repository.ContatoVO;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,16 +9,13 @@ import java.sql.ResultSet;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) throws Exception{
-//        Connection connection = ConnectionFactory.getConnection();
-//        System.out.println(connection);
+        Connection connection = ConnectionFactory.getConnection();
+        System.out.println(connection);
+        ContatoDAO dao = new ContatoDAO(connection);
+
+//        ContatoVO contato = new ContatoVO(null,"195444348646", "Carlos", "Carlos@gmail.com");
 //
-//       ResultSet rst = connection.createStatement()
-//                        .executeQuery("select version() as versao;");
-//
-//       if(rst.next()){
-//           System.out.println(rst.getString("versao"));
-//       }
-//
-//       rst.close();
+//        dao.salvar(contato);
+        dao.buscarPorEmail("Carlos@gmail.com");
     }
 }

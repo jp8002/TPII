@@ -2,29 +2,40 @@ package model.repository;
 
 import java.util.List;
 
-public class ContatoMySqlRepositoryImpl implements iContatoRepository{
-    @Override
-    public void salvar(ContatoVO contatoVO) {
+import model.ContatoVO;
+import model.dao.ContatoDAO;
 
+public class ContatoMySqlRepositoryImpl implements iContatoRepository {
+
+    private final ContatoDAO dao;
+
+    public ContatoMySqlRepositoryImpl(ContatoDAO dao) {
+        this.dao = dao;
     }
 
     @Override
-    public void atualizar(ContatoVO contatoVO) {
+    public void salvar(ContatoVO contato) {
+        this.dao.salvar(contato);
+    }
+
+    @Override
+    public void atualizar(ContatoVO contato) {
 
     }
 
     @Override
     public void excluir(Integer id) {
-
+        this.dao.excluir(id);
     }
 
     @Override
     public ContatoVO buscarPorEmail(String email) {
-        return null;
+        return this.dao.buscarPorEmail(email);
     }
 
     @Override
     public List<ContatoVO> buscarTodos() {
-        return List.of();
+        return dao.buscarTodos();
     }
+
 }

@@ -1,5 +1,7 @@
 package model.repository;
 
+import model.ContatoVO;
+
 import java.util.List;
 
 public interface iContatoRepository {

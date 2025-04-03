@@ -1,13 +1,18 @@
 package model.repository;
 
+import model.ContatoVO;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class ContatoEmMemoriaRepositoryImpl implements iContatoRepository{
-    private List<ContatoVO> contatoVOS;
+    private List<ContatoVO> contatoVO = new ArrayList<>();
 
     @Override
     public void salvar(ContatoVO contatoVO) {
-        this.contatoVOS.add(contatoVO);
+        this.contatoVO.add(contatoVO);
+        System.out.println("Contato criado com suceso");
     }
 
     @Override
@@ -17,16 +22,16 @@ public class ContatoEmMemoriaRepositoryImpl implements iContatoRepository{
 
     @Override
     public void excluir(Integer id) {
-        this.contatoVOS
+        this.contatoVO
                 .stream()
                 .filter(c -> c.getId().equals(id))
                 .findFirst()
-                .ifPresent(c -> this.contatoVOS.remove(c));
+                .ifPresent(c -> this.contatoVO.remove(c));
     }
 
     @Override
     public ContatoVO buscarPorEmail(String email) {
-        return this.contatoVOS
+        return this.contatoVO
                 .stream()
                 .filter(c -> c.getEmail().equals(email))
                 .findFirst()
@@ -35,6 +40,6 @@ public class ContatoEmMemoriaRepositoryImpl implements iContatoRepository{
 
     @Override
     public List<ContatoVO> buscarTodos() {
-        return this.contatoVOS;
+        return this.contatoVO;
     }
 }

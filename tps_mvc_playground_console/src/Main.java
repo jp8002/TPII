@@ -5,6 +5,7 @@ import model.repository.ContatoEmMemoriaRepositoryImpl;
 import model.repository.ContatoMySqlRepositoryImpl;
 import model.repository.iContatoRepository;
 import model.services.ContatoServices;
+import view.Menu;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -25,15 +26,40 @@ public class Main {
         }
     }
     public static void main(String[] args) throws Exception{
-        config("");
+//        config("");
+//
+//        ContatoDTO contato = new ContatoDTO(null,"7845454321", "Parlo", "parlo@gmail.com");
+//
+//
+//        var service = new ContatoServices(repository);
+//
+//        service.salvar(contato);
 
-        ContatoDTO contato = new ContatoDTO(null,"7845454321", "Parlo", "parlo@gmail.com");
+        var m = new Menu();
 
+        m.escrever();
+        //TODO: Criar menu para seleção de funções:
+        /*
+         *   1. Criar
+         *   2. Listar
+         *   3. Buscar
+         *   4. Atualizar
+         *   5. Excluir
+         *   6. Sair
+         */
 
-        var service = new ContatoServices(repository);
+        // TODO: Mover menu para classe View
 
-        service.salvar(contato);
-
+        /*
+         * A classe View deverá conter a dependencia da classe ContatoController
+         *
+         * Deverá também conter o menu de opções
+         *
+         * Cada opção do menu deverá realizar uma função do controller
+         *
+         * NÃO precisa implementar a lógica de negócio do controller
+         *
+         */
 
 //
 //        model.dao.salvar(contato);
